@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  web:
+    image: myphp:1.0
+    ports:
+      - "8000:80"
+    links:
+      - db
+    volumes:
+      - ./blog:/var/www/html
+      - "./php.ini:/usr/local/etc/php/php.ini"
+    environment:
+      DB_HOST: db_app
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: demo
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
