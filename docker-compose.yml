@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   web:
-    image: myphp:1.0
+    image: mytodo:1.0
     ports:
       - "8000:80"
     links:
@@ -10,7 +10,7 @@ services:
       - ./blog:/var/www/html
       - "./php.ini:/usr/local/etc/php/php.ini"
     environment:
-      DB_HOST: db_app
+      DB_HOST: db
 
   db:
     image: mysql:5.7
